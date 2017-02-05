@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="UPDATE MARKS"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp"
+        android:textSize="40dp"
+        android:textColor="#07288A" />
+
+    <EditText
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ID"
+        android:hint="ID"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <EditText
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/marks"
+        android:hint="Marks"
+        android:layout_below="@+id/ID"
+        android:layout_alignLeft="@+id/ID"
+        android:layout_alignStart="@+id/ID" />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPDATE"
+        android:id="@+id/button_update"
+        android:onClick="btn_click"
+        android:layout_below="@+id/marks"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="49dp"
+        android:background="#8DA8F7" />
+</RelativeLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_add_layout"
+
+            android:title="Add Student" />
+        <item
+            android:id="@+id/nav_update_layout"
+            android:title="Update Marks" />
+        <item
+            android:id="@+id/nav_display_layout"
+            android:title="View Student List" />
+        <item
+            android:id="@+id/nav_delete_layout"
+            android:title="Delete Student" />
+
+
+    </group>
+
+</menu>
