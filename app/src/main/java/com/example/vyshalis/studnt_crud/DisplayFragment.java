@@ -7,39 +7,31 @@ package com.example.vyshalis.studnt_crud;
 //imported files
 import android.app.Fragment;
 import android.database.Cursor;
-import android.database.SQLException;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-/**
- * Created by smoot on 2016-06-10.
- */
 
 //A Fragment represents a behavior or a portion of user interface in an Activity
 public class DisplayFragment extends Fragment{
 
     //A View occupies a rectangular area on the screen and
     // is responsible for drawing and event handling
+
     //myView is defined
     View myView;
 
     //textView to add content to table
     TextView textView;
-
-    //EditText for firstname,lastname and marks
-    EditText firstname, lastname, marks;
 
     //TableLayout to display student list
     TableLayout t1;
@@ -54,7 +46,7 @@ public class DisplayFragment extends Fragment{
         //myView refers  to the display_layout
         myView = inflater.inflate(R.layout.display_layout, container, false);
 
-        //TableLayout t1 is refers to the ouputtable ro show student records
+        //TableLayout t1 is refers to the output table to show student records
         t1 = (TableLayout) myView.findViewById(R.id.main_table);
 
         //object controller is initialise  and the constructor in DB_Controller class is invoked
@@ -106,7 +98,7 @@ public class DisplayFragment extends Fragment{
                 TableLayout.LayoutParams.FILL_PARENT,
                 TableLayout.LayoutParams.WRAP_CONTENT));
 
-        //c gets the number of rows in tble STUDENT
+        //c gets the number of rows in table STUDENT
         int c=0;
         c=controller.getProfilesCount();
         if(c>0) {

@@ -64,10 +64,12 @@ public class DB_Controller extends SQLiteOpenHelper
 
     //this method is called when the user click on DELETE button
     //Helps to delete a student record to table STUDENT
-    public void update_student(int marks,int id)
+    public void update_student(int marks, int id, String firstname, String lastname)
     {
         //The MARKS of student with ID =id is updated with marks
         this.getWritableDatabase().execSQL("UPDATE STUDENT SET MARKS='"+marks+"'WHERE ID='"+id+"'");
+        this.getWritableDatabase().execSQL("UPDATE STUDENT SET FIRSTNAME = '"+firstname+"' WHERE ID = '"+id+"'");
+        this.getWritableDatabase().execSQL("UPDATE STUDENT SET LASTNAME = '"+lastname+"' WHERE ID = '"+id+"'");
     }
 
     //method to  find the count of rows in the table with ID=id
@@ -107,4 +109,6 @@ public class DB_Controller extends SQLiteOpenHelper
         cursor.close();
         return cnt;
     }
+
+
 }

@@ -23,14 +23,15 @@ public class UpdateFragment extends Fragment implements View.OnClickListener{
 
     //A View occupies a rectangular area on the screen and
     // is responsible for drawing and event handling
+
     //myView is defined
     View myView;
 
     //a button btn is defined
     Button btn;
 
-    //EditText for ID and marks
-    EditText marks,ID;
+    //EditText for ID , marks, firstname and lastname
+    EditText marks,ID, firstname, lastname;
 
     //an object on DB_Controller class to manage SQLlite
     DB_Controller controller;
@@ -48,6 +49,15 @@ public class UpdateFragment extends Fragment implements View.OnClickListener{
         //marks refers to the EditText marks in the update_layout
         marks = (EditText)myView.findViewById(R.id.marks);
 
+
+        //firstname refers to the EditText firstname in the update_layout
+        firstname = (EditText)myView.findViewById(R.id.firstname_input) ;
+
+        //lastname refers to the EditText lastname in the update_layout
+        lastname = (EditText)myView.findViewById(R.id.lastname_input);
+
+
+
         //btn refers to the button_update button in update_layout
         btn = (Button) myView.findViewById(R.id.button_update);
         btn.setOnClickListener(this);
@@ -64,22 +74,25 @@ public class UpdateFragment extends Fragment implements View.OnClickListener{
 
         try
         {
-            //count is initialised with the number of rows in table STUDENT witha specific ID
+            //count is initialised with the number of rows in table STUDENT with a specific ID
             int counts = controller.getCount(Integer.parseInt(ID.getText().toString()));
 
             //count>0 means a record exist with corresponding user inputed ID
             if(counts>0)
             {
                 //the update_student method in DB_Controller is called with the marks and ID entered by user as the parameters
-                controller.update_student(Integer.parseInt(marks.getText().toString()),Integer.parseInt(ID.getText().toString()));
+
+                controller.update_student(Integer.parseInt(marks.getText().toString()),Integer.parseInt(ID.getText().toString()),
+                        firstname.getText().toString(),lastname.getText().toString());
+
 
                 //a message is displayed saying 'STUDENT RECORD UPDATED'
                 Toast.makeText(getActivity().getBaseContext(), "STUDENT RECORD UPDATED", Toast.LENGTH_SHORT).show();
             }
             else
             {
-                //a message is displayed saying 'RECORD DOESN'T EXIXTS'
-                Toast.makeText(getActivity().getBaseContext(),"RECORD DOESN'T EXIXTS",Toast.LENGTH_SHORT).show();
+                //a message is displayed saying 'RECORD DOESN'T EXISTS'
+                Toast.makeText(getActivity().getBaseContext(),"RECORD DOESN'T EXISTS",Toast.LENGTH_SHORT).show();
             }
 
 
@@ -88,11 +101,18 @@ public class UpdateFragment extends Fragment implements View.OnClickListener{
 
             //the text of ID is set as''
             ID.setText("");
+
+            //the text of firstname is set as''
+            firstname.setText("");
+
+            //the lastname of lastname is set as ''
+            lastname.setText("");
+
         }
-        //catch is invoked when an exeption rise in above try
+        //catch is invoked when an exception rise in above try
         catch (SQLException e)
         {
-            //a message is displayed saying 'DOESN'T EXIXTS'
+            //a message is displayed saying 'DOESN'T EXISTS'
             Toast.makeText(getActivity().getBaseContext(), "DOESNOT EXIST", Toast.LENGTH_SHORT).show();
 
             //the text of ID is set as''
@@ -100,6 +120,13 @@ public class UpdateFragment extends Fragment implements View.OnClickListener{
 
             //the text of marks is set as''
             marks.setText("");
+
+            //the text of firstname is set as''
+            firstname.setText("");
+
+            //the lastname of lastname is set as ''
+            lastname.setText("");
+
         }
     }
 }

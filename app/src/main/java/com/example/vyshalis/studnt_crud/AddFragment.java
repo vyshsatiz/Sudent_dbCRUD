@@ -22,6 +22,7 @@ public class AddFragment extends Fragment implements View.OnClickListener{
 
     //A View occupies a rectangular area on the screen and
     // is responsible for drawing and event handling
+
     //myView is defined
     View myView;
 
@@ -65,7 +66,8 @@ public class AddFragment extends Fragment implements View.OnClickListener{
         try
         {
             //the insert_student method in DB_Controller is called with the inputs entered by user as the parameters
-            controller.insert_student(firstname.getText().toString(), lastname.getText().toString(), Integer.parseInt(marks.getText().toString()));
+            controller.insert_student(firstname.getText().toString(), lastname.getText().toString(),
+                    Integer.parseInt(marks.getText().toString()));
 
             //a message is displayed saying 'STUDENT ADDED'
             Toast.makeText(getActivity().getBaseContext(), "STUDENT ADDED", Toast.LENGTH_SHORT).show();
@@ -80,7 +82,7 @@ public class AddFragment extends Fragment implements View.OnClickListener{
             marks.setText("");
 
         }
-        //catch is invoked when an exeption rise in above try
+        //catch is invoked when an exception rise in above try
         catch (SQLException e) {
 
             //a message is displayed saying 'ALREADY EXISTS'

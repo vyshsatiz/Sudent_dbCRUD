@@ -23,6 +23,7 @@ public class DeleteFragment extends Fragment implements View.OnClickListener{
 
     //A View occupies a rectangular area on the screen and
     // is responsible for drawing and event handling
+
     //myView is defined
     View myView;
 
@@ -81,7 +82,7 @@ public class DeleteFragment extends Fragment implements View.OnClickListener{
             //the text of ID is set as''
             ID.setText("");
         }
-        //catch is invoked when an exeption rise in above try
+        //catch is invoked when an exception rise in above try
         catch (SQLException e) {
 
             //a message is displayed saying 'NO DATA'
